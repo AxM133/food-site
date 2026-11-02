@@ -1,4 +1,10 @@
-import { useState, type ChangeEvent, type ComponentProps, type FormEvent } from 'react'
+import {
+    useState,
+    type ChangeEvent,
+    type ClipboardEvent,
+    type ComponentProps,
+    type FormEvent,
+} from 'react'
 import { FaTimes } from 'react-icons/fa'
 import { useOverlay } from '@/shared/lib/useOverlay'
 import { Button, Input, Logo } from '@/shared/ui'
@@ -47,14 +53,24 @@ export function BookingModal({ onClose }: BookingModalProps) {
 
     useOverlay(onClose)
 
+    const updateField = (field: keyof BookingFormValues, rawValue: string) => {
+        const value = formatters[field]?.(rawValue) ?? rawValue
+
+        setValues((current) => ({ ...current, [field]: value }))
+        setErrors((current) => ({ ...current, [field]: undefined }))
+    }
+
     const handleChange =
         (field: keyof BookingFormValues) =>
-        (event: ChangeEvent<HTMLInputElement>) => {
-            const value = formatters[field]?.(event.target.value) ?? event.target.value
+        (event: ChangeEvent<HTMLInputElement>) =>
+            updateField(field, event.target.value)
 
-            setValues((current) => ({ ...current, [field]: value }))
-            setErrors((current) => ({ ...current, [field]: undefined }))
-        }
+    // Вставленный номер заменяет всё поле. Иначе он дописался бы после "+7"
+    // и его собственные "+7" или "8" превратились бы в цифры номера
+    const handlePhonePaste = (event: ClipboardEvent<HTMLInputElement>) => {
+        event.preventDefault()
+        updateField('phone', event.clipboardData.getData('text'))
+    }
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -134,6 +150,7 @@ export function BookingModal({ onClose }: BookingModalProps) {
                                 autoComplete='tel'
                                 value={values.phone}
                                 onChange={handleChange('phone')}
+                                onPaste={handlePhonePaste}
                                 // на фокусе сразу ставим +7, а если ничего не ввели, убираем
                                 onFocus={() =>
                                     setValues((current) =>
