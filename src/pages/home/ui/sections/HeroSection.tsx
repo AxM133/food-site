@@ -1,12 +1,8 @@
-import { Button, Container } from '@/shared/ui'
-import { heroImage } from '../../config/images'
 import { Link } from 'react-router'
-
-const navLinks = [
-    { label: 'Меню', to: '/menu' },
-    { label: 'Доставка', to: '/#delivery' },
-    { label: 'Оплата', to: '/' },
-]
+import { BookTableButton } from '@/features/book-table'
+import { navLinks } from '@/shared/config/navLinks'
+import { Container } from '@/shared/ui'
+import { heroImage } from '../../config/images'
 
 export function HeroSection() {
     return (
@@ -24,11 +20,11 @@ export function HeroSection() {
                         {label}
                     </Link>
                 ))}
-                <Button>Бронь столика</Button>
+                <BookTableButton />
             </nav>
 
             <Container className='relative pb-40'>
-                <h1 className='max-w-205 text-4xl leading-sung font-semibold md:text-5xl lg:pl-28'>
+                <h1 className='max-w-205 text-4xl leading-snug font-semibold md:text-5xl lg:pl-28'>
                     Видовой ресторан Food Exxe Relo на Крестовском острове
                 </h1>
             </Container>

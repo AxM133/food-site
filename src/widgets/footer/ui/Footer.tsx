@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import { Container, Logo } from '@/shared/ui'
 
 const paymentSystems = ['VISA', 'МИР', 'Mastercard']
@@ -10,7 +11,9 @@ export function Footer({ withPayments = false }: FooterProps) {
     return (
         <footer className='bg-dark py-10 text-white'>
             <Container className='flex items-center justify-between gap-6'>
-                <Logo className='text-4xl' />
+                <Link to='/' aria-label='На главную'>
+                    <Logo className='text-4xl' />
+                </Link>
 
                 <a href='#' className='text-sm transition-colors hover:text-gold'>
                     Политика конфиденциальности

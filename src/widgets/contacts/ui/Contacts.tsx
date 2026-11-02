@@ -1,4 +1,5 @@
 import { FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa'
+import { BookTableButton } from '@/features/book-table'
 import { Button, Container, SectionTitle } from '@/shared/ui'
 import { address, mapUrl, phone, travelTimes, workingHours, } from '../config/contacts'
 
@@ -60,7 +61,7 @@ export function Contacts() {
                             </ul>
 
                             <div className="mt-8 flex flex-wrap gap-4">
-                                <Button>Бронь столика</Button>
+                                <BookTableButton />
                                 <Button variant="outline-light">Задать вопрос</Button>
                             </div>
                         </div>

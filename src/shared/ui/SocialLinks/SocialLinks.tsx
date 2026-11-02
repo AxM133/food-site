@@ -27,7 +27,7 @@ export function SocialLinks({ className }: SocialLinksProps) {
                         href={href}
                         target="_blank"
                         rel="noreferrer"
-                        aria-lable={name}
+                        aria-label={name}
                         className="text-gold transition-opacity hover:opacity-70"
                     >
                         <Icon size={28} />

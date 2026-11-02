@@ -20,7 +20,7 @@ export function ImageGallery({ images, alt }: ImageGalleryProps) {
             {images.length > 1 && (
                 <ul className="mt-6 grid grid-cols-3 gap-6">
                     {images.map((src, index) => (
-                        <li key={src}>
+                        <li key={`${index}-${src}`}>
                             <button
                                 type="button"
                                 aria-label={`Фото ${index + 1}`}
