@@ -1,0 +1,5 @@
+export { categories } from './model/categories'
+export type { CategoryId } from './model/categories'
+export { dishes } from './model/dishes'
+export type { Dish, DishAddon } from './model/types'
+export { DishCard } from './ui/DishCard'
