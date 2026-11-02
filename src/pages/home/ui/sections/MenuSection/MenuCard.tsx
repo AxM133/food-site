@@ -1,12 +1,12 @@
 export type MenuCardProps = {
     title: string
     image: string
-    href: string
+    to: string
 }
 
-export function MenuCard({ title, image, href }: MenuCardProps) {
+export function MenuCard({ title, image, to }: MenuCardProps) {
     return (
-        <a href={href} className="group block">
+        <a href={to} className="group block">
             <div className="border border-line px-10 pt-10">
                 <img
                     src={image}

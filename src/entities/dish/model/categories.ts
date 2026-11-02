@@ -15,3 +15,10 @@ export const categories = [
 ] as const
 
 export type CategoryId = (typeof categories)[number]['id']
+
+// Проверка для URL
+export const defaultCategoryId: CategoryId = 'breakfast'
+
+export function isCategoryId(value: string | null): value is CategoryId {
+    return categories.some((category) => category.id === value)
+}

@@ -1,4 +1,4 @@
-export { categories } from './model/categories'
+export { categories, defaultCategoryId, isCategoryId } from './model/categories'
 export type { CategoryId } from './model/categories'
 export { dishes } from './model/dishes'
 export type { Dish, DishAddon } from './model/types'

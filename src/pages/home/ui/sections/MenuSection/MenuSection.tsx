@@ -3,8 +3,8 @@ import { barMenuImage, mainMenuImage } from '../../../config/images'
 import { MenuCard, type MenuCardProps } from './MenuCard'
 
 const menuCards: MenuCardProps[] = [
-    { title: 'Основное меню', image: mainMenuImage, href: '#' },
-    { title: 'Барная карта', image: barMenuImage, href: '#' },
+    { title: 'Основное меню', image: mainMenuImage, to: '#' },
+    { title: 'Барная карта', image: barMenuImage, to: '#' },
 ]
 
 export function MenuSection() {

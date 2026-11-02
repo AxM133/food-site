@@ -1,10 +1,11 @@
 import { Button, Container } from '@/shared/ui'
 import { heroImage } from '../../config/images'
+import { Link } from 'react-router'
 
 const navLinks = [
-    { label: 'Меню', href: '#menu' },
-    { label: 'Доставка', href: '#delivery' },
-    { label: 'Оплата', href: '#' },
+    { label: 'Меню', to: '/menu' },
+    { label: 'Доставка', to: '/#delivery' },
+    { label: 'Оплата', to: '/' },
 ]
 
 export function HeroSection() {
@@ -18,10 +19,10 @@ export function HeroSection() {
             <div className='absolute inset-0 bg-black/45' />
 
             <nav className='absolute top-0 right-0 hidden items-center gap-10 px-6 py-6 text-sm md:flex min-[1700px]:pr-24'>
-                {navLinks.map(({ label, href }) => (
-                    <a key={label} href={href} className='transition-colors hover:text-gold'>
+                {navLinks.map(({ label, to }) => (
+                    <Link key={label} to={to} className='transition-colors hover:text-gold'>
                         {label}
-                    </a>
+                    </Link>
                 ))}
                 <Button>Бронь столика</Button>
             </nav>
